@@ -40,11 +40,9 @@ def main(page: ft.Page):
         page.update()
 
     # Criação de componentes
-    text_num1 = ft.Text(value="Nome:")
-    input_num1 = ft.TextField(label="Digite aqui", hint_text="Insira o nome")
-    text_num2 = ft.Text(value="Sobrenome:")
-    input_num2 = ft.TextField(label="Digite aqui", hint_text="Insira o sobrenome")
-    result = ft.Text(value="0", color=ft.colors.WHITE, size=20)
+    input_num1 = ft.TextField(label="Digite aqui", hint_text="Insira o primeiro número")
+    input_num2 = ft.TextField(label="Digite aqui", hint_text="Insira o segundo número")
+    result = ft.Text(value="0", color=ft.Colors.WHITE, size=20)
     submit_adi = ft.FilledButton(
         text="Adição",
         width=page.window.width,
@@ -70,7 +68,7 @@ def main(page: ft.Page):
     page.add(
         ft.Container(
             width=350,
-            bgcolor=ft.colors.BLACK,
+            bgcolor=ft.Colors.BLACK,
             border_radius=ft.border_radius.all(20),
             padding=20,
             content=ft.Column(
