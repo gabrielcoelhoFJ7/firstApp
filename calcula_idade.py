@@ -15,34 +15,29 @@ def main(page: ft.Page):
 
     # Definição de funções
     def mostrar_idade(e):
-        data = str(input_data.value)
-        data_formatada = datetime.strptime(data, "%d/%m/%Y")
-        agora = datetime.datetime.now()
+        try:
+            data = datetime.datetime.strptime(input_data.value, "%d/%m/%Y")
+            agora = datetime.datetime.now()
+            agora = agora.strftime("%d/%m/%Y")
+            agora = datetime.datetime.strptime(agora, "%d/%m/%Y")
 
-        # situação
-        if data == agora:
-            situacao = "presente"
-        elif data < agora:
-            situacao = "passado"
-        else:
-            situacao = "futuro"
+            # situação
+            if data < agora:
+                # diferença
+                anos_diferenca = abs(data.year - agora.year)
+                if (data.month >= agora.month and data.day > agora.day) or (data.month >= agora.month):
+                    anos_diferenca -= 1
+                txt_resultado.value = f"a idade é {anos_diferenca}"
+            else:
+                txt_resultado.value = f"Data inválida."
+        except ValueError:
+            txt_resultado.value = f"Erro ao calcular a idade"
 
-        # diferença
-        if situacao == "passado" or situacao == "futuro":
-            dias_diferenca = int(abs(data - agora).days)
-            meses_diferenca = abs(((data.year - agora.year) * 12) + data.month - agora.month)
-            anos_diferenca = abs(data.year - agora.year)
-            if meses_diferenca % 12 == 0 and data.day - agora.day > 0:
-                anos_diferenca = anos_diferenca - 1
-
-
-        txt_resultado.value = input_nome.value+" "+input_sobrenome.value
         page.update()
 
 
     # Criação de componentes
-    text_data = ft.Text(value="Nome:")
-    input_data = ft.TextField(label="Digite aqui", hint_text="Insira o nome")
+    input_data = ft.TextField(label="Digite aqui", hint_text="Insira a data")
     txt_resultado = ft.Text(value="")
     submit_button = ft.FilledButton(
         text="Submit",
@@ -55,10 +50,7 @@ def main(page: ft.Page):
         # ft.SafeArea(
             ft.Column(
                 [
-                    text_nome,
-                    input_nome,
-                    text_sobrenome,
-                    input_sobrenome,
+                    input_data,
                     submit_button,
                     txt_resultado,
                 ]
