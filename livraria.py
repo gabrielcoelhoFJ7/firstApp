@@ -18,7 +18,10 @@ def main(page: ft.Page):
                 "/",
                 [
                     AppBar(title=ft.Text("Home"), bgcolor=Colors.PRIMARY_CONTAINER),
-                    input_nome,
+                    input_title,
+                    input_subtitle,
+                    input_category,
+                    input_author,
                     ElevatedButton(text="Adicionar", on_click=lambda _: page.go("/segunda")),
                 ],
             )
@@ -30,10 +33,10 @@ def main(page: ft.Page):
                     "/segunda",
                     [
                         AppBar(title=ft.Text("Segunda tela"), bgcolor=Colors.SECONDARY_CONTAINER),
-                        ft.Text(value=f"Bem vindo {input_title.value}!"),
-                        ft.Text(value=f"Bem vindo {input_subtitle.value}!"),
-                        ft.Text(value=f"Bem vindo {input_nome.value}!"),
-                        ft.Text(value=f"Bem vindo {input_nome.value}!"),
+                        ft.Text(value=f"Livro: {input_title.value}!"),
+                        ft.Text(value=f"Descrição: {input_subtitle.value}!"),
+                        ft.Text(value=f"Categoria: {input_category.value}!"),
+                        ft.Text(value=f"Nome do autor: {input_author.value}!"),
                     ],
                 )
             )
