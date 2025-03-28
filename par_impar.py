@@ -36,7 +36,6 @@ def main(page: ft.Page):
 
     # Construir o layout
     page.add(
-        # ft.SafeArea(
             ft.Column(
                 [
                     text_num,
@@ -44,7 +43,6 @@ def main(page: ft.Page):
                     submit_button,
                     txt_resultado,
                 ]
-            # )
         )
     )
 

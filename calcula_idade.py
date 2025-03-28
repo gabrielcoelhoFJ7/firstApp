@@ -14,8 +14,9 @@ def main(page: ft.Page):
     page.theme = ft.Theme(font_family="Kanit")  # Default app font
 
     # Definição de funções
-    def mostrar_nome(e):
-        data = datetime.datetime()
+    def mostrar_idade(e):
+        data = str(input_data.value)
+        data_formatada = datetime.strptime(data, "%d/%m/%Y")
         agora = datetime.datetime.now()
 
         # situação
@@ -40,15 +41,13 @@ def main(page: ft.Page):
 
 
     # Criação de componentes
-    text_nome = ft.Text(value="Nome:")
-    input_nome = ft.TextField(label="Digite aqui", hint_text="Insira o nome")
-    text_sobrenome = ft.Text(value="Sobrenome:")
-    input_sobrenome = ft.TextField(label="Digite aqui", hint_text="Insira o sobrenome")
+    text_data = ft.Text(value="Nome:")
+    input_data = ft.TextField(label="Digite aqui", hint_text="Insira o nome")
     txt_resultado = ft.Text(value="")
     submit_button = ft.FilledButton(
         text="Submit",
         width=page.window.width,
-        on_click=mostrar_nome,
+        on_click=mostrar_idade,
     )
 
     # Construir o layout
