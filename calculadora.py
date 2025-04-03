@@ -13,28 +13,28 @@ def main(page: ft.Page):
     # Definição de funções
     def mostrar_multi(e):
         try:
-            result.value = (int(input_num1.value) * int(input_num2.value))
+            result.value = (float(input_num1.value) * float(input_num2.value))
         except ValueError:
             result.value = 0
         page.update()
 
     def mostrar_div(e):
         try:
-            result.value = int(input_num1.value) / int(input_num2.value)
+            result.value = float(input_num1.value) / float(input_num2.value)
         except ValueError:
             result.value = 0
         page.update()
 
     def mostrar_adi(e):
         try:
-            result.value = int(input_num1.value) + int(input_num2.value)
+            result.value = float(input_num1.value) + float(input_num2.value)
         except ValueError:
             result.value = 0
         page.update()
 
     def mostrar_sub(e):
         try:
-            result.value = int(input_num1.value) - int(input_num2.value)
+            result.value = float(input_num1.value) - float(input_num2.value)
         except ValueError:
             result.value = 0
         page.update()
